@@ -4,22 +4,24 @@ import Form from './Form'
 
 function App() {
 
+  const [amount, setAmount] = useState(0);
 
-
-
-
-
-
-
+  const getNewAmountValue = (newAmountValue) => {
+    setAmount(newAmountValue);
+    console.log(newAmountValue)
+  };
+  const calculateCurrency = () => {
+    return (+amount / 4.5).toFixed(2);
+  };
 
   return (
 
     <div className="App">
 
-      <Form />
+      <Form getNewAmountValue={getNewAmountValue} />
 
       <span>Wynik: </span>
-      <span>5000,00 </span>
+      <span>{calculateCurrency()} </span>
       <span>EUR</span>
 
     </div>
