@@ -11,3 +11,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 } */
+
+html {
+  box-sizing: border-box;
+}
+
+*, ::after, ::before {
+  box-sizing: inherit;
+}
+
+/* body {
+  font-family: "Lato", sans-serif;
+  background-size: cover;
+  background-position: center;
+} */
+
+/* .mainContainer {
+    max-width: 800px;
+    margin: 0px auto;
+    padding: 0px 10px;
+} */

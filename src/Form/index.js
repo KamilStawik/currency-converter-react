@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import "./style.css";
 
-const Form = ({ getNewAmountValue }) => {
+const Form = ({ getNewAmountValue, getNewTargetCurrency }) => {
 
     const [newAmountValue, setNewAmountValue] = useState(0);
+    const [newTargetCurrency, setNewTargetCurrency] = useState("EUR");
 
     const onFormSubmit = (event) => {
         event.preventDefault();
         getNewAmountValue(newAmountValue);
+        getNewTargetCurrency(newTargetCurrency);
+        setNewAmountValue(0);
     };
 
     return (
@@ -21,19 +24,25 @@ const Form = ({ getNewAmountValue }) => {
                     <input
                         className="form__numberField"
                         type="number"
-                        name="amount"
                         value={newAmountValue}
                         onChange={({ target }) => setNewAmountValue(target.value)}
                         step="0.01"
-                        min="1"
+                        min="0.01"
                         max="100000000"
                         required
                     />
                 </label>
 
                 <label>
-                    <select className="form__selectField" name="resultCurrency" required>
-                        <option defaultValue="EUR" >EUR</option>
+                    <select
+                        className="form__selectField"
+                        value={newTargetCurrency}
+                        onChange={({ target }) => setNewTargetCurrency(target.value)}
+                        name="resultCurrency"
+                        required
+                    >
+                        <option value="EUR" >EUR</option>
+                        <option value="USD" >USD</option>
                     </select>
                 </label>
             </fieldset>
@@ -41,6 +50,7 @@ const Form = ({ getNewAmountValue }) => {
             <button className="form__button">Przelicz!</button>
 
             <span>{newAmountValue}</span>
+            <span>{newTargetCurrency}</span>
 
         </form>
     )
