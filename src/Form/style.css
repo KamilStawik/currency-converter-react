@@ -1,0 +1,81 @@
+.form {
+    margin: 2px;
+}
+
+.form__labelText {
+    max-width: 165px;
+    width: 100%;
+    display: inline-block;
+    margin-right: 5px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+.form__numberField {
+    max-width: 140px;
+    width: 100%;
+    border: 1px solid #888;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+}
+
+.form__numberField:invalid {
+    background-color: rgb(255, 160, 160);
+}
+
+.form__numberField:required {
+    background-color: rgb(255, 250, 200);
+}
+
+.form__button {
+    display: block;
+    width: 100%;
+    margin: 5px auto;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    background-color: hsl(240, 100%, 25%);
+}
+
+.form__button:hover {
+    font-weight: bold;
+    background-color: hsl(240, 100%, 35%);
+}
+
+.form__button:active {
+    font-weight: bold;
+    background-color: hsl(240, 100%, 45%);
+}
+
+.form__fieldset {
+    border: 1px solid hsl(240, 100%, 25%);
+    background-color: rgb(255, 250, 240);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 20px 0px;
+}
+
+.form__legend {
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    background-color: hsl(240, 100%, 25%);
+    padding: 10px;
+}
+
+.form__selectField {
+    border: 1px solid #888;
+    border-radius: 5px;
+    padding: 3px;
+    margin: 0px 10px;
+}
+
+.form__selectField:required {
+    background-color: rgb(255, 250, 200);
+}
+
+.form__selectField--error.form__selectField--error {
+    background-color: rgb(255, 160, 160);
+}
