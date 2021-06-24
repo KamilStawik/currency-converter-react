@@ -1,6 +1,7 @@
 import './App.css';
 import React, { useState } from 'react';
-import Form from './Form'
+import Form from './Form';
+import Container from './Container';
 
 function App() {
 
@@ -9,10 +10,12 @@ function App() {
   const [targetCurrency, setTargetCurrency] = useState("EUR");
 
   const currencyPairRatings = [
-    { baseCurrency: "PLN", targetCurrency: "EUR", rating: 1 / 4.5 },
-    { baseCurrency: "EUR", targetCurrency: "PLN", rating: 4.5 },
-    { baseCurrency: "PLN", targetCurrency: "DOL", rating: 1 / 4 },
-    { baseCurrency: "DOL", targetCurrency: "PLN", rating: 4 },
+    { baseCurrency: "PLN", targetCurrency: "EUR", rating: 1 / 4.57 },
+    { baseCurrency: "EUR", targetCurrency: "PLN", rating: 4.57 },
+    { baseCurrency: "PLN", targetCurrency: "USD", rating: 1 / 3.77 },
+    { baseCurrency: "USD", targetCurrency: "PLN", rating: 3.77 },
+    { baseCurrency: "USD", targetCurrency: "EUR", rating: 1 / 1.22 },
+    { baseCurrency: "EUR", targetCurrency: "USD", rating: 1.22 },
   ];
 
   const getNewAmountValue = (newAmountValue) => {
@@ -42,7 +45,7 @@ function App() {
 
   return (
 
-    <div className="App">
+    <Container>
 
       <Form getNewAmountValue={getNewAmountValue} getNewTargetCurrency={getNewTargetCurrency} getNewBaseCurrency={getNewBasetCurrency} />
 
@@ -55,8 +58,8 @@ function App() {
         <span>Właściwy kurs to: {properRating[0].rating} </span>
       </p>
 
+    </Container>
 
-    </div>
   );
 }
 

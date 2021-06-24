@@ -3,7 +3,7 @@ import "./style.css";
 
 const Form = ({ getNewAmountValue, getNewTargetCurrency, getNewBaseCurrency }) => {
 
-    const [newAmountValue, setNewAmountValue] = useState(0);
+    const [newAmountValue, setNewAmountValue] = useState(1.00);
     const [newBaseCurrency, setNewBaseCurrency] = useState("PLN");
     const [newTargetCurrency, setNewTargetCurrency] = useState("EUR");
 
@@ -12,7 +12,6 @@ const Form = ({ getNewAmountValue, getNewTargetCurrency, getNewBaseCurrency }) =
         getNewAmountValue(newAmountValue);
         getNewBaseCurrency(newBaseCurrency);
         getNewTargetCurrency(newTargetCurrency);
-        setNewAmountValue(0);
     };
 
     return (
@@ -21,8 +20,8 @@ const Form = ({ getNewAmountValue, getNewTargetCurrency, getNewBaseCurrency }) =
             <fieldset className="form__fieldset">
                 <legend className="form__legend">Przelicznik walut</legend>
 
-                <label>
-                    <span className="form__labelText">Podaj kwotę w złotówkach:</span>
+                <label className="form__label">
+                    <span className="form__labelText">Podaj kwotę do przeliczenia:</span>
                     <input
                         className="form__numberField"
                         type="number"
@@ -35,7 +34,8 @@ const Form = ({ getNewAmountValue, getNewTargetCurrency, getNewBaseCurrency }) =
                     />
                 </label>
 
-                <label>
+                <label className="form__label">
+                    <span className="form__labelText">Podaj walutę bazową:</span>
                     <select
                         className="form__selectField"
                         value={newBaseCurrency}
@@ -49,7 +49,8 @@ const Form = ({ getNewAmountValue, getNewTargetCurrency, getNewBaseCurrency }) =
                 </label>
 
 
-                <label>
+                <label className="form__label">
+                    <span className="form__labelText">Podaj walutę docelową:</span>
                     <select
                         className="form__selectField"
                         value={newTargetCurrency}
