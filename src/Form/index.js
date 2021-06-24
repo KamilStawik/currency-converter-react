@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import "./style.css";
 
-const Form = ({ getNewAmountValue, getNewTargetCurrency }) => {
+const Form = ({ getNewAmountValue, getNewTargetCurrency, getNewBaseCurrency }) => {
 
     const [newAmountValue, setNewAmountValue] = useState(0);
+    const [newBaseCurrency, setNewBaseCurrency] = useState("PLN");
     const [newTargetCurrency, setNewTargetCurrency] = useState("EUR");
 
     const onFormSubmit = (event) => {
         event.preventDefault();
         getNewAmountValue(newAmountValue);
+        getNewBaseCurrency(newBaseCurrency);
         getNewTargetCurrency(newTargetCurrency);
         setNewAmountValue(0);
     };
@@ -36,21 +38,40 @@ const Form = ({ getNewAmountValue, getNewTargetCurrency }) => {
                 <label>
                     <select
                         className="form__selectField"
-                        value={newTargetCurrency}
-                        onChange={({ target }) => setNewTargetCurrency(target.value)}
-                        name="resultCurrency"
+                        value={newBaseCurrency}
+                        onChange={({ target }) => setNewBaseCurrency(target.value)}
                         required
                     >
+                        <option value="PLN" >PLN</option>
                         <option value="EUR" >EUR</option>
                         <option value="USD" >USD</option>
                     </select>
                 </label>
+
+
+                <label>
+                    <select
+                        className="form__selectField"
+                        value={newTargetCurrency}
+                        onChange={({ target }) => setNewTargetCurrency(target.value)}
+                        required
+                    >
+                        <option value="PLN" >PLN</option>
+                        <option value="EUR" >EUR</option>
+                        <option value="USD" >USD</option>
+
+                    </select>
+                </label>
+
+
+
             </fieldset>
 
             <button className="form__button">Przelicz!</button>
 
-            <span>{newAmountValue}</span>
-            <span>{newTargetCurrency}</span>
+            <span>Kwota: {newAmountValue} </span>
+            <span>{newBaseCurrency} .</span>
+            <span>Przeliczyć na: {newTargetCurrency}</span>
 
         </form>
     )
