@@ -15,7 +15,6 @@ const Form = ({ getNewAmountValue, getNewTargetCurrency, getNewBaseCurrency }) =
     };
 
     return (
-
         <form className="form" onSubmit={onFormSubmit} >
             <fieldset className="form__fieldset">
                 <legend className="form__legend">Przelicznik walut</legend>
@@ -48,7 +47,6 @@ const Form = ({ getNewAmountValue, getNewTargetCurrency, getNewBaseCurrency }) =
                     </select>
                 </label>
 
-
                 <label className="form__label">
                     <span className="form__labelText">Podaj walutę docelową:</span>
                     <select
@@ -63,8 +61,6 @@ const Form = ({ getNewAmountValue, getNewTargetCurrency, getNewBaseCurrency }) =
 
                     </select>
                 </label>
-
-
 
             </fieldset>
 

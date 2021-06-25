@@ -5,12 +5,15 @@
 
 .form__label {
     margin: 10px;
-    display: flex;
-    justify-content: space-between;
 }
 
 .form__labelText {
+    max-width: 260px;
+    width: 100%;
     display: inline-block;
+    margin-right: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .form__numberField {

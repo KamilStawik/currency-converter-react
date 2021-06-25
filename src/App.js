@@ -1,9 +1,10 @@
 import './App.css';
 import React, { useState } from 'react';
-import Container from './Container';
 import Header from './Header';
+import Container from './Container';
 import InfoSection from './InfoSection';
 import Form from './Form';
+import ResultSection from './ResultSection';
 
 function App() {
 
@@ -41,9 +42,7 @@ function App() {
   const properRating = currencyPairRatings.filter(selectProperRating);
 
   const calculateCurrency = () => {
-
     return (+amount * properRating[0].rating).toFixed(2);
-
   };
 
   return (
@@ -56,13 +55,19 @@ function App() {
           getNewTargetCurrency={getNewTargetCurrency}
           getNewBaseCurrency={getNewBasetCurrency}
         />
+        <ResultSection
+          calculateCurrency={calculateCurrency}
+          amount={amount}
+          baseCurrency={baseCurrency}
+          targetCurrency={targetCurrency}
+        />
 
         <h1>Wynik: {calculateCurrency()}</h1>
 
         <p>
           <span>{baseCurrency} </span>
           <span>{targetCurrency} </span>
-          <span>Właściwy kurs to: {properRating[0].rating} </span>
+
         </p>
       </Container>
     </>
