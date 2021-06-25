@@ -1,4 +1,3 @@
-import './App.css';
 import React, { useState } from 'react';
 import Header from './Header';
 import Container from './Container';
@@ -19,6 +18,9 @@ function App() {
     { baseCurrency: "USD", targetCurrency: "PLN", rating: 3.7986 },
     { baseCurrency: "USD", targetCurrency: "EUR", rating: 1 / 1.1926 },
     { baseCurrency: "EUR", targetCurrency: "USD", rating: 1.1926 },
+    { baseCurrency: "PLN", targetCurrency: "PLN", rating: 0 },
+    { baseCurrency: "EUR", targetCurrency: "EUR", rating: 0 },
+    { baseCurrency: "USD", targetCurrency: "USD", rating: 0 },
   ];
 
   const getNewAmountValue = (newAmountValue) => {
@@ -39,10 +41,10 @@ function App() {
   const selectProperRating = (currencyPairRating) =>
     (currencyPairRating.baseCurrency === baseCurrency && currencyPairRating.targetCurrency === targetCurrency);
 
-  const properRating = currencyPairRatings.filter(selectProperRating);
+  const properRating = (currencyPairRatings.filter(selectProperRating)[0].rating);
 
   const calculateCurrency = () => {
-    return (+amount * properRating[0].rating).toFixed(2);
+    return (+amount * properRating).toFixed(2);
   };
 
   return (
@@ -51,6 +53,7 @@ function App() {
       <Container>
         <InfoSection />
         <Form
+          properRating={properRating}
           getNewAmountValue={getNewAmountValue}
           getNewTargetCurrency={getNewTargetCurrency}
           getNewBaseCurrency={getNewBasetCurrency}
@@ -61,14 +64,6 @@ function App() {
           baseCurrency={baseCurrency}
           targetCurrency={targetCurrency}
         />
-
-        <h1>Wynik: {calculateCurrency()}</h1>
-
-        <p>
-          <span>{baseCurrency} </span>
-          <span>{targetCurrency} </span>
-
-        </p>
       </Container>
     </>
   );

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./style.css";
 
-const Form = ({ getNewAmountValue, getNewTargetCurrency, getNewBaseCurrency }) => {
+const Form = ({ properRating, getNewAmountValue, getNewTargetCurrency, getNewBaseCurrency }) => {
 
     const [newAmountValue, setNewAmountValue] = useState(1.00);
     const [newBaseCurrency, setNewBaseCurrency] = useState("PLN");
@@ -28,7 +28,7 @@ const Form = ({ getNewAmountValue, getNewTargetCurrency, getNewBaseCurrency }) =
                         onChange={({ target }) => setNewAmountValue(target.value)}
                         step="0.01"
                         min="0.01"
-                        max="100000000"
+                        max="1000000"
                         required
                     />
                 </label>
@@ -36,7 +36,7 @@ const Form = ({ getNewAmountValue, getNewTargetCurrency, getNewBaseCurrency }) =
                 <label className="form__label">
                     <span className="form__labelText">Podaj walutę bazową:</span>
                     <select
-                        className="form__selectField"
+                        className={`form__selectField ${properRating === 0 ? "form__selectField--error" : ""}`}
                         value={newBaseCurrency}
                         onChange={({ target }) => setNewBaseCurrency(target.value)}
                         required
@@ -50,7 +50,7 @@ const Form = ({ getNewAmountValue, getNewTargetCurrency, getNewBaseCurrency }) =
                 <label className="form__label">
                     <span className="form__labelText">Podaj walutę docelową:</span>
                     <select
-                        className="form__selectField"
+                        className={`form__selectField ${properRating === 0 ? "form__selectField--error" : ""}`}
                         value={newTargetCurrency}
                         onChange={({ target }) => setNewTargetCurrency(target.value)}
                         required
@@ -58,17 +58,11 @@ const Form = ({ getNewAmountValue, getNewTargetCurrency, getNewBaseCurrency }) =
                         <option value="PLN" >PLN</option>
                         <option value="EUR" >EUR</option>
                         <option value="USD" >USD</option>
-
                     </select>
                 </label>
-
             </fieldset>
 
             <button className="form__button">Przelicz!</button>
-
-            <span>Kwota: {newAmountValue} </span>
-            <span>{newBaseCurrency} .</span>
-            <span>Przeliczyć na: {newTargetCurrency}</span>
 
         </form>
     )

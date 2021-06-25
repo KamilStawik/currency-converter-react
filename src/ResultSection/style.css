@@ -1,9 +1,10 @@
 .resultSection {
     max-width: 100%;
-    margin: auto;
+    margin: 20px auto;
     background-color: rgb(255, 250, 240);
-    border: 1px solid #888;
+    border: 1px solid hsl(240, 100%, 25%);
     border-radius: 5px;
+    box-shadow: 5px 5px 5px hsl(0, 0%, 20%);
     padding: 10px;
 }
 

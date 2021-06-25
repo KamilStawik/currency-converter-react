@@ -2,8 +2,9 @@
     max-width: 100%;
     margin: auto;
     background-color: rgb(255, 250, 240);
-    border: 1px solid #888;
+    border: 1px solid hsl(240, 100%, 25%);
     border-radius: 5px;
+    box-shadow: 5px 5px 5px hsl(0, 0%, 20%);
     padding: 10px;
 }
 
@@ -20,7 +21,7 @@
     display: inline-block;
     width: 100px;
     background-color: rgb(255, 250, 200);
-    border: 1px solid #888;
+    border: 1px solid hsl(0, 0%, 53%);
     border-radius: 5px;
     padding: 10px;
     margin: 5px;
@@ -31,7 +32,7 @@
     display: inline-block;
     width: 100px;
     background-color: rgb(255, 160, 160);
-    border: 1px solid #888;
+    border: 1px solid hsl(0, 0%, 53%);
     border-radius: 5px;
     padding: 10px;
     margin: 5px;
