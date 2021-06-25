@@ -1,7 +1,9 @@
 import './App.css';
 import React, { useState } from 'react';
-import Form from './Form';
 import Container from './Container';
+import Header from './Header';
+import InfoSection from './InfoSection';
+import Form from './Form';
 
 function App() {
 
@@ -33,7 +35,8 @@ function App() {
     console.log(newTargetCurrency);
   };
 
-  const selectProperRating = (currencyPairRating) => (currencyPairRating.baseCurrency === baseCurrency && currencyPairRating.targetCurrency === targetCurrency);
+  const selectProperRating = (currencyPairRating) =>
+    (currencyPairRating.baseCurrency === baseCurrency && currencyPairRating.targetCurrency === targetCurrency);
 
   const properRating = currencyPairRatings.filter(selectProperRating);
 
@@ -44,22 +47,25 @@ function App() {
   };
 
   return (
+    <>
+      <Header />
+      <Container>
+        <InfoSection />
+        <Form
+          getNewAmountValue={getNewAmountValue}
+          getNewTargetCurrency={getNewTargetCurrency}
+          getNewBaseCurrency={getNewBasetCurrency}
+        />
 
-    <Container>
+        <h1>Wynik: {calculateCurrency()}</h1>
 
-      <Form getNewAmountValue={getNewAmountValue} getNewTargetCurrency={getNewTargetCurrency} getNewBaseCurrency={getNewBasetCurrency} />
-
-
-      <h1>Wynik: {calculateCurrency()}</h1>
-
-      <p>
-        <span>{baseCurrency} </span>
-        <span>{targetCurrency} </span>
-        <span>Właściwy kurs to: {properRating[0].rating} </span>
-      </p>
-
-    </Container>
-
+        <p>
+          <span>{baseCurrency} </span>
+          <span>{targetCurrency} </span>
+          <span>Właściwy kurs to: {properRating[0].rating} </span>
+        </p>
+      </Container>
+    </>
   );
 }
 
