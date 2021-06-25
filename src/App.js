@@ -10,12 +10,12 @@ function App() {
   const [targetCurrency, setTargetCurrency] = useState("EUR");
 
   const currencyPairRatings = [
-    { baseCurrency: "PLN", targetCurrency: "EUR", rating: 1 / 4.57 },
-    { baseCurrency: "EUR", targetCurrency: "PLN", rating: 4.57 },
-    { baseCurrency: "PLN", targetCurrency: "USD", rating: 1 / 3.77 },
-    { baseCurrency: "USD", targetCurrency: "PLN", rating: 3.77 },
-    { baseCurrency: "USD", targetCurrency: "EUR", rating: 1 / 1.22 },
-    { baseCurrency: "EUR", targetCurrency: "USD", rating: 1.22 },
+    { baseCurrency: "PLN", targetCurrency: "EUR", rating: 1 / 4.5302 },
+    { baseCurrency: "EUR", targetCurrency: "PLN", rating: 4.5302 },
+    { baseCurrency: "PLN", targetCurrency: "USD", rating: 1 / 3.7986 },
+    { baseCurrency: "USD", targetCurrency: "PLN", rating: 3.7986 },
+    { baseCurrency: "USD", targetCurrency: "EUR", rating: 1 / 1.1926 },
+    { baseCurrency: "EUR", targetCurrency: "USD", rating: 1.1926 },
   ];
 
   const getNewAmountValue = (newAmountValue) => {
