@@ -18,9 +18,9 @@ function App() {
     { baseCurrency: "USD", targetCurrency: "PLN", rating: 3.7986 },
     { baseCurrency: "USD", targetCurrency: "EUR", rating: 1 / 1.1926 },
     { baseCurrency: "EUR", targetCurrency: "USD", rating: 1.1926 },
-    { baseCurrency: "PLN", targetCurrency: "PLN", rating: 0 },
-    { baseCurrency: "EUR", targetCurrency: "EUR", rating: 0 },
-    { baseCurrency: "USD", targetCurrency: "USD", rating: 0 },
+    { baseCurrency: "PLN", targetCurrency: "PLN", rating: 1 },
+    { baseCurrency: "EUR", targetCurrency: "EUR", rating: 1 },
+    { baseCurrency: "USD", targetCurrency: "USD", rating: 1 },
   ];
 
   const getNewAmountValue = (newAmountValue) => {
