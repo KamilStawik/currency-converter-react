@@ -8,6 +8,12 @@
     padding: 10px;
 }
 
+@media (max-width: 660px) {
+    .resultSection {
+        box-shadow: 2px 2px 2px hsl(0, 0%, 20%);
+    }
+}
+
 .resultSection__header {
     margin: 5px;
     text-align: center;
@@ -15,6 +21,14 @@
 
 .resultSection__resultBox {
     text-align: center;
+}
+
+@media (max-width: 660px) {
+    .resultSection__resultBox {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 .resultSection__resultText {

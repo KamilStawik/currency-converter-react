@@ -8,6 +8,12 @@
     padding: 10px;
 }
 
+@media (max-width: 660px) {
+    .infoSection {
+        box-shadow: 2px 2px 2px hsl(0, 0%, 20%);
+    }
+}
+
 .infoSection__unorderedList {
     list-style: none;
     padding: 2px;
