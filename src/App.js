@@ -7,7 +7,7 @@ import ResultSection from './ResultSection';
 
 function App() {
 
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState(1.00);
   const [baseCurrency, setBaseCurrency] = useState("PLN");
   const [targetCurrency, setTargetCurrency] = useState("EUR");
 
@@ -25,17 +25,14 @@ function App() {
 
   const getNewAmountValue = (newAmountValue) => {
     setAmount(newAmountValue);
-    console.log(newAmountValue);
   };
 
   const getNewBasetCurrency = (newBaseCurrency) => {
     setBaseCurrency(newBaseCurrency);
-    console.log(newBaseCurrency);
   };
 
   const getNewTargetCurrency = (newTargetCurrency) => {
     setTargetCurrency(newTargetCurrency);
-    console.log(newTargetCurrency);
   };
 
   const selectProperRating = (currencyPairRating) =>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./style.css";
 
-const Form = ({ properRating, getNewAmountValue, getNewTargetCurrency, getNewBaseCurrency }) => {
+const Form = ({ properRating, getNewAmountValue, getNewTargetCurrency, getNewBaseCurrency, }) => {
 
     const [newAmountValue, setNewAmountValue] = useState(1.00);
     const [newBaseCurrency, setNewBaseCurrency] = useState("PLN");
