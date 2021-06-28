@@ -36,7 +36,7 @@ const Form = ({ properRating, getNewAmountValue, getNewTargetCurrency, getNewBas
                 <label className="form__label">
                     <span className="form__labelText">Podaj walutę bazową:</span>
                     <select
-                        className={`form__selectField ${properRating === 0 ? "form__selectField--error" : ""}`}
+                        className={`form__selectField ${properRating === 1 ? "form__selectField--error" : ""}`}
                         value={newBaseCurrency}
                         onChange={({ target }) => setNewBaseCurrency(target.value)}
                         required
@@ -50,7 +50,7 @@ const Form = ({ properRating, getNewAmountValue, getNewTargetCurrency, getNewBas
                 <label className="form__label">
                     <span className="form__labelText">Podaj walutę docelową:</span>
                     <select
-                        className={`form__selectField ${properRating === 0 ? "form__selectField--error" : ""}`}
+                        className={`form__selectField ${properRating === 1 ? "form__selectField--error" : ""}`}
                         value={newTargetCurrency}
                         onChange={({ target }) => setNewTargetCurrency(target.value)}
                         required
