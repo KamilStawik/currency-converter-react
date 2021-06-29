@@ -26,7 +26,7 @@
 .infoSection__requiredColor {
     display: inline-block;
     width: 100px;
-    background-color: rgb(255, 250, 200);
+    background-color: rgb(255, 255, 160);
     border: 1px solid hsl(0, 0%, 53%);
     border-radius: 5px;
     padding: 10px;

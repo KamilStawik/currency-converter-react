@@ -44,7 +44,7 @@
 }
 
 .form__numberField:required {
-    background-color: rgb(255, 250, 200);
+    background-color: rgb(255, 255, 160);
 }
 
 .form__button {
@@ -104,7 +104,7 @@
 }
 
 .form__selectField:required {
-    background-color: rgb(255, 250, 200);
+    background-color: rgb(255, 255, 160);
 }
 
 .form__selectField--error.form__selectField--error {
