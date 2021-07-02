@@ -10,6 +10,7 @@ function App() {
   const [amount, setAmount] = useState(1.00);
   const [baseCurrency, setBaseCurrency] = useState("PLN");
   const [targetCurrency, setTargetCurrency] = useState("EUR");
+  const [clickCounter, setClickCounter] = useState(0);
 
   const currencyPairRatings = [
     { baseCurrency: "PLN", targetCurrency: "EUR", rating: 1 / 4.5302 },
@@ -35,6 +36,10 @@ function App() {
     setTargetCurrency(newTargetCurrency);
   };
 
+  const getNewClickCounterValue = (newClickCounterValue) => {
+    setClickCounter(newClickCounterValue);
+  };
+
   const selectProperRating = (currencyPairRating) =>
     (currencyPairRating.baseCurrency === baseCurrency && currencyPairRating.targetCurrency === targetCurrency);
 
@@ -54,16 +59,18 @@ function App() {
           getNewAmountValue={getNewAmountValue}
           getNewTargetCurrency={getNewTargetCurrency}
           getNewBaseCurrency={getNewBasetCurrency}
+          getNewClickCounterValue={getNewClickCounterValue}
         />
         <ResultSection
           calculateCurrency={calculateCurrency}
           amount={amount}
           baseCurrency={baseCurrency}
           targetCurrency={targetCurrency}
+          clickCounter={clickCounter}
         />
       </Container>
     </>
   );
-}
+};
 
 export default App;

@@ -1,17 +1,20 @@
 import React, { useState } from "react";
 import "./style.css";
 
-const Form = ({ properRating, getNewAmountValue, getNewTargetCurrency, getNewBaseCurrency, }) => {
+const Form = ({ properRating, getNewAmountValue, getNewTargetCurrency, getNewBaseCurrency, getNewClickCounterValue }) => {
 
     const [newAmountValue, setNewAmountValue] = useState(1.00);
     const [newBaseCurrency, setNewBaseCurrency] = useState("PLN");
     const [newTargetCurrency, setNewTargetCurrency] = useState("EUR");
+    const [newClickCounterValue, setNewClickCounterValue] = useState(1);
 
     const onFormSubmit = (event) => {
         event.preventDefault();
         getNewAmountValue(newAmountValue);
         getNewBaseCurrency(newBaseCurrency);
         getNewTargetCurrency(newTargetCurrency);
+        setNewClickCounterValue(newClickCounterValue => newClickCounterValue + 1);
+        getNewClickCounterValue(newClickCounterValue);
     };
 
     return (
@@ -65,7 +68,7 @@ const Form = ({ properRating, getNewAmountValue, getNewTargetCurrency, getNewBas
             <button className="form__button">Przelicz!</button>
 
         </form>
-    )
+    );
 };
 
 export default Form;

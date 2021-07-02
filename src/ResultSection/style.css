@@ -35,4 +35,11 @@
     font-size: 24px;
     font-weight: bold;
     color: hsl(240, 100%, 25%);
+    transition: color 0.2s linear;
+}
+
+.resultSection__resultText--highlighted {
+    font-size: 24px;
+    font-weight: bold;
+    color: hsl(0, 100%, 60%);
 }
