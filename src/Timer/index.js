@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import "./style.css";
 
 const Timer = () => {
-
     const [currentTime, setTime] = useState(new Date());
 
     useEffect(() => {

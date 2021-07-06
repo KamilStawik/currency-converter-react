@@ -4,7 +4,7 @@ import Timer from "../Timer";
 const InfoSection = () => {
 
     return (
-        < section className="infoSection" >
+        <section className="infoSection">
             <Timer />
             <ul className="infoSection__unorderedList">
                 <li className="infoSection__listItem">
@@ -19,7 +19,7 @@ const InfoSection = () => {
                     <span className="infoSection__invalidColor"></span>
                 </li>
             </ul>
-        </section >
+        </section>
     );
 };
 
