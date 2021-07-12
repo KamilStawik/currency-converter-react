@@ -13,14 +13,15 @@ Hi! My name is Kamil. At the begining of 2021 I had a briliant idea. I started t
 ## About this project
 
 This is my second study project. Very simple currency converter. User can pick two currencies and set amount to calculate.
-I applied basic data verification. It check if user wont pick the same currency in both *input fields*
+I applied basic data verification. It check if user wont pick the same currency in both *input fields*.
 
 ## Technologies and conventions used in project:
 * HTML
 * CSS
 * javascript
 * React.js
-* BEM
+* Styled-components
+* Custom Hooks
 * CamelCase
 * Immutability
 *  [Create React App](https://github.com/facebook/create-react-app).
