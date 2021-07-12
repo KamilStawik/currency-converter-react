@@ -1,25 +1,25 @@
-import "./style.css";
 import Timer from "./Timer";
+import { Section, List, ListItem, InfoColorSample } from "./styled";
 
 const InfoSection = () => {
 
     return (
-        <section className="infoSection">
+        <Section>
             <Timer />
-            <ul className="infoSection__unorderedList">
-                <li className="infoSection__listItem">
+            <List>
+                <ListItem>
                     Kalkulator przelicza wartość waluty po kursie średnim z dnia 24.06.2021.
-                </li>
-                <li className="infoSection__listItem">
+                </ListItem>
+                <ListItem>
                     Pola wymagane są oznaczone kolorem żółtym:
-                    <span className="infoSection__requiredColor"></span>
-                </li>
-                <li className="infoSection__listItem">
+                    <InfoColorSample requiredSample></InfoColorSample>
+                </ListItem>
+                <ListItem>
                     Pola błędnie wypełnione są oznaczone kolorem czerwonym:
-                    <span className="infoSection__invalidColor"></span>
-                </li>
-            </ul>
-        </section>
+                    <InfoColorSample errorSample></InfoColorSample>
+                </ListItem>
+            </List>
+        </Section>
     );
 };
 

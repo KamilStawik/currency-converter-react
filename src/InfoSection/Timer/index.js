@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./style.css";
+import { StyledTimer } from "./styled";
 
 const Timer = () => {
     const [currentTime, setTime] = useState(new Date());
@@ -24,7 +24,7 @@ const Timer = () => {
     });
 
     return (
-        <span className="timer">Dzisiaj jest {timer} </span>
+        <StyledTimer>Dzisiaj jest {timer} </StyledTimer>
     );
 };
 
