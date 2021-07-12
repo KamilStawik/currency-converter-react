@@ -1,20 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { useCurrentDate } from "./useCurrentDate";
 import { StyledTimer } from "./styled";
 
 const Timer = () => {
-    const [currentTime, setTime] = useState(new Date());
 
-    useEffect(() => {
-        const intervalId = setInterval(() => {
-            setTime(new Date());
-        }, 1000);
+    const currentDate = useCurrentDate();
 
-        return () => {
-            clearInterval(intervalId);
-        };
-    }, []);
-
-    const timer = currentTime.toLocaleString("pl", {
+    const timer = currentDate.toLocaleString("pl", {
         weekday: "long",
         day: "numeric",
         month: "long",
