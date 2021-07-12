@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./style.css";
+import { Section, Header, ResultParagraph, ResultText } from "./styled";
 
 const ResultSection = ({ calculateCurrency, amount, baseCurrency, targetCurrency, clickCounter }) => {
 
@@ -13,17 +13,17 @@ const ResultSection = ({ calculateCurrency, amount, baseCurrency, targetCurrency
     }, [clickCounter]);
 
     return (
-        <section className="resultSection">
-            <h2 className="resultSection__header">Wynik:</h2>
-            <p className="resultSection__resultBox">
-                <span className={`resultSection__resultText ${checkValue === true ? "resultSection__resultText--highlighted" : ""}`}>
+        <Section>
+            <Header>Wynik:</Header>
+            <ResultParagraph>
+                <ResultText highlighted={checkValue}>
                     {`${amount} ${baseCurrency} = `}
-                </span>
-                <span className={`resultSection__resultText ${checkValue === true ? "resultSection__resultText--highlighted" : ""}`}>
+                </ResultText>
+                <ResultText highlighted={checkValue}>
                     {`${calculateCurrency()} ${targetCurrency}`}
-                </span>
-            </p>
-        </section>
+                </ResultText>
+            </ResultParagraph>
+        </Section>
     )
 };
 
