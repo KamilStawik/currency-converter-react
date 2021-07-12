@@ -1,7 +1,22 @@
 import React, { useState } from "react";
-import "./style.css";
+import {
+    StyledForm,
+    Fieldset,
+    Legend,
+    Label,
+    LabelText,
+    AmountInput,
+    Select,
+    Button,
+} from "./styled"
 
-const Form = ({ properRating, getNewAmountValue, getNewTargetCurrency, getNewBaseCurrency, getNewClickCounterValue }) => {
+const Form = ({
+    properRating,
+    getNewAmountValue,
+    getNewTargetCurrency,
+    getNewBaseCurrency,
+    getNewClickCounterValue
+}) => {
 
     const [newAmountValue, setNewAmountValue] = useState(1.00);
     const [newBaseCurrency, setNewBaseCurrency] = useState("PLN");
@@ -18,13 +33,12 @@ const Form = ({ properRating, getNewAmountValue, getNewTargetCurrency, getNewBas
     };
 
     return (
-        <form className="form" onSubmit={onFormSubmit} >
-            <fieldset className="form__fieldset">
-                <legend className="form__legend">Przelicznik walut</legend>
-
-                <label className="form__label">
-                    <span className="form__labelText">Podaj kwotę do przeliczenia:</span>
-                    <input
+        <StyledForm onSubmit={onFormSubmit}>
+            <Fieldset>
+                <Legend>Przelicznik walut</Legend>
+                <Label>
+                    <LabelText>Podaj kwotę do przeliczenia:</LabelText>
+                    <AmountInput
                         className="form__numberField"
                         type="number"
                         value={newAmountValue}
@@ -34,12 +48,11 @@ const Form = ({ properRating, getNewAmountValue, getNewTargetCurrency, getNewBas
                         max="1000000"
                         required
                     />
-                </label>
-
-                <label className="form__label">
-                    <span className="form__labelText">Podaj walutę bazową:</span>
-                    <select
-                        className={`form__selectField ${properRating === 1 ? "form__selectField--error" : ""}`}
+                </Label>
+                <Label>
+                    <LabelText>Podaj walutę bazową:</LabelText>
+                    <Select
+                        error={properRating === 1 ? true : false}
                         value={newBaseCurrency}
                         onChange={({ target }) => setNewBaseCurrency(target.value)}
                         required
@@ -47,13 +60,12 @@ const Form = ({ properRating, getNewAmountValue, getNewTargetCurrency, getNewBas
                         <option value="PLN" >PLN</option>
                         <option value="EUR" >EUR</option>
                         <option value="USD" >USD</option>
-                    </select>
-                </label>
-
-                <label className="form__label">
-                    <span className="form__labelText">Podaj walutę docelową:</span>
-                    <select
-                        className={`form__selectField ${properRating === 1 ? "form__selectField--error" : ""}`}
+                    </Select>
+                </Label>
+                <Label>
+                    <LabelText>Podaj walutę docelową:</LabelText>
+                    <Select
+                        error={properRating === 1 ? true : false}
                         value={newTargetCurrency}
                         onChange={({ target }) => setNewTargetCurrency(target.value)}
                         required
@@ -61,13 +73,13 @@ const Form = ({ properRating, getNewAmountValue, getNewTargetCurrency, getNewBas
                         <option value="PLN" >PLN</option>
                         <option value="EUR" >EUR</option>
                         <option value="USD" >USD</option>
-                    </select>
-                </label>
-            </fieldset>
+                    </Select>
+                </Label>
+            </Fieldset>
 
-            <button className="form__button">Przelicz!</button>
+            <Button>Przelicz!</Button>
 
-        </form>
+        </StyledForm>
     );
 };
 
