@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Section, Header, ResultParagraph, ResultText } from "./styled";
 
-const ResultSection = ({ calculateCurrency, amount, baseCurrency, targetCurrency, clickCounter }) => {
+const ResultSection = ({ amount, currency, rate, clickCounter }) => {
 
     const [checkValue, setCheckValue] = useState(false);
 
@@ -12,15 +12,17 @@ const ResultSection = ({ calculateCurrency, amount, baseCurrency, targetCurrency
         }, 1000);
     }, [clickCounter]);
 
+    const calculateResult = () => (amount * rate).toFixed(2);
+
     return (
         <Section>
             <Header>Wynik:</Header>
             <ResultParagraph>
                 <ResultText highlighted={checkValue}>
-                    {`${amount} ${baseCurrency} = `}
+                    {`${amount} PLN = `}
                 </ResultText>
                 <ResultText highlighted={checkValue}>
-                    {`${calculateCurrency()} ${targetCurrency}`}
+                    {` ${calculateResult()} ${currency}`}
                 </ResultText>
             </ResultParagraph>
         </Section>

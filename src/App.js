@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { ThemeProvider } from 'styled-components';
 import Header from './Header';
 import Container from './Container';
 import InfoSection from './InfoSection';
 import Form from './Form';
 import ResultSection from './ResultSection';
-import { ThemeProvider } from 'styled-components';
+import LoadingScreen from './LoadingScreen';
+import { useCurrencyData } from './useCurrencyData'
 
 const theme = {
   colors: {
@@ -21,70 +23,57 @@ const theme = {
 
 function App() {
 
-  const [amount, setAmount] = useState(1.00);
-  const [baseCurrency, setBaseCurrency] = useState("PLN");
-  const [targetCurrency, setTargetCurrency] = useState("EUR");
+  const { currenciesData } = useCurrencyData();
+  const [amount, setAmount] = useState(1);
+  const [currency, setCurrency] = useState("EUR");
   const [clickCounter, setClickCounter] = useState(0);
 
-  const currencyPairRatings = [
-    { baseCurrency: "PLN", targetCurrency: "EUR", rating: 1 / 4.5302 },
-    { baseCurrency: "EUR", targetCurrency: "PLN", rating: 4.5302 },
-    { baseCurrency: "PLN", targetCurrency: "USD", rating: 1 / 3.7986 },
-    { baseCurrency: "USD", targetCurrency: "PLN", rating: 3.7986 },
-    { baseCurrency: "USD", targetCurrency: "EUR", rating: 1 / 1.1926 },
-    { baseCurrency: "EUR", targetCurrency: "USD", rating: 1.1926 },
-    { baseCurrency: "PLN", targetCurrency: "PLN", rating: 1 },
-    { baseCurrency: "EUR", targetCurrency: "EUR", rating: 1 },
-    { baseCurrency: "USD", targetCurrency: "USD", rating: 1 },
-  ];
+  let rate = currenciesData.status === "succes" ? currenciesData.rates[currency] : 1;
 
   const getNewAmountValue = (newAmountValue) => {
     setAmount(newAmountValue);
   };
 
-  const getNewBasetCurrency = (newBaseCurrency) => {
-    setBaseCurrency(newBaseCurrency);
-  };
-
-  const getNewTargetCurrency = (newTargetCurrency) => {
-    setTargetCurrency(newTargetCurrency);
+  const getNewTargetCurrencyValue = (newTargetCurrencyValue) => {
+    setCurrency(newTargetCurrencyValue);
   };
 
   const getNewClickCounterValue = (newClickCounterValue) => {
     setClickCounter(newClickCounterValue);
   };
 
-  const selectProperRating = (currencyPairRating) =>
-    (currencyPairRating.baseCurrency === baseCurrency && currencyPairRating.targetCurrency === targetCurrency);
+  if (currenciesData.status === "loading")
+    return (
+      <ThemeProvider theme={theme}>
+        <Header />
+        <Container>
+          <LoadingScreen />
+        </Container>
+      </ThemeProvider>
+    )
 
-  const properRating = (currencyPairRatings.filter(selectProperRating)[0].rating);
-
-  const calculateCurrency = () => {
-    return (+amount * properRating).toFixed(2);
-  };
-
-  return (
-    <ThemeProvider theme={theme}>
-      <Header />
-      <Container>
-        <InfoSection />
-        <Form
-          properRating={properRating}
-          getNewAmountValue={getNewAmountValue}
-          getNewTargetCurrency={getNewTargetCurrency}
-          getNewBaseCurrency={getNewBasetCurrency}
-          getNewClickCounterValue={getNewClickCounterValue}
-        />
-        <ResultSection
-          calculateCurrency={calculateCurrency}
-          amount={amount}
-          baseCurrency={baseCurrency}
-          targetCurrency={targetCurrency}
-          clickCounter={clickCounter}
-        />
-      </Container>
-    </ThemeProvider>
-  );
+  else {
+    return (
+      <ThemeProvider theme={theme}>
+        <Header />
+        <Container>
+          <InfoSection />
+          <Form
+            currenciesData={currenciesData}
+            getNewAmountValue={getNewAmountValue}
+            getNewTargetCurrencyValue={getNewTargetCurrencyValue}
+            getNewClickCounterValue={getNewClickCounterValue}
+          />
+          <ResultSection
+            amount={amount}
+            currency={currency}
+            rate={rate}
+            clickCounter={clickCounter}
+          />
+        </Container>
+      </ThemeProvider>
+    );
+  }
 };
 
 export default App;

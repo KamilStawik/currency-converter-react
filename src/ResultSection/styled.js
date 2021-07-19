@@ -11,7 +11,7 @@ export const Section = styled.section`
 
     @media (max-width: ${({ theme }) => (theme.breakPoints.mobile)}px) {
         box-shadow: 2px 2px 2px hsl(0, 0%, 20%);
-    }  
+    }
 `;
 
 export const Header = styled.h2`
@@ -34,6 +34,12 @@ export const ResultText = styled.span`
     font-weight: bold;
     color: ${({ theme }) => theme.colors.primaryColor};
     transition: color 0.2s linear;
+
+    && {    
+        ${(props) => props.highlighted && css`
+            color: hsl(340, 90%, 45%);
+        `}
+    }
 
     && {    
         ${(props) => props.highlighted && css`

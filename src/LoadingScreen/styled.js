@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 export const Section = styled.section`
     max-width: 100%;
@@ -21,18 +21,4 @@ export const List = styled.ul`
 
 export const ListItem = styled.li`
     padding: 8px 2px;
-`;
-
-export const InfoColorSample = styled.span`
-    display: inline-block;
-    width: 100px;
-    border: 1px solid ${({ theme }) => theme.colors.borderColor};
-    border-radius: 5px;
-    padding: 10px;
-    margin: 5px;
-    margin-bottom: -5px;
-
-    ${(props) => props.requiredSample && css`
-        background-color: ${({ theme }) => theme.colors.requiredColor};
-    `}
 `;

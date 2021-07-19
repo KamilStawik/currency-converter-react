@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 export const StyledForm = styled.form`
     max-width: 100%;
@@ -59,10 +59,6 @@ export const AmountInput = styled.input`
     padding: 6px;
     margin: 0px 10px;
 
-    &:invalid {
-        background-color: ${({ theme }) => (theme.colors.invalidColor)};
-    }
-
     &:required {
         background-color: ${({ theme }) => (theme.colors.requiredColor)};
     }
@@ -78,12 +74,6 @@ export const Select = styled.select`
 
     &:required {
         background-color: ${({ theme }) => (theme.colors.requiredColor)};
-    }
-
-    && {    
-        ${(props) => props.error && css`
-        background-color: ${({ theme }) => (theme.colors.invalidColor)};
-        `}
     }
 `;
 

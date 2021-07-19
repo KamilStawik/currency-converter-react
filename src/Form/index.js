@@ -11,23 +11,22 @@ import {
 } from "./styled"
 
 const Form = ({
-    properRating,
+    currenciesData,
     getNewAmountValue,
-    getNewTargetCurrency,
-    getNewBaseCurrency,
-    getNewClickCounterValue
+    getNewTargetCurrencyValue,
+    getNewClickCounterValue,
 }) => {
 
     const [newAmountValue, setNewAmountValue] = useState(1.00);
-    const [newBaseCurrency, setNewBaseCurrency] = useState("PLN");
     const [newTargetCurrency, setNewTargetCurrency] = useState("EUR");
     const [newClickCounterValue, setNewClickCounterValue] = useState(1);
+
+    let currencyList = Object.keys(currenciesData.rates)
 
     const onFormSubmit = (event) => {
         event.preventDefault();
         getNewAmountValue(newAmountValue);
-        getNewBaseCurrency(newBaseCurrency);
-        getNewTargetCurrency(newTargetCurrency);
+        getNewTargetCurrencyValue(newTargetCurrency);
         setNewClickCounterValue(newClickCounterValue => newClickCounterValue + 1);
         getNewClickCounterValue(newClickCounterValue);
     };
@@ -37,7 +36,7 @@ const Form = ({
             <Fieldset>
                 <Legend>Przelicznik walut</Legend>
                 <Label>
-                    <LabelText>Podaj kwotę do przeliczenia:</LabelText>
+                    <LabelText>Podaj kwotę w złotówkach:</LabelText>
                     <AmountInput
                         className="form__numberField"
                         type="number"
@@ -50,29 +49,20 @@ const Form = ({
                     />
                 </Label>
                 <Label>
-                    <LabelText>Podaj walutę bazową:</LabelText>
+                    <LabelText>Podaj walutę docelową: </LabelText>
                     <Select
-                        error={properRating === 1 ? true : false}
-                        value={newBaseCurrency}
-                        onChange={({ target }) => setNewBaseCurrency(target.value)}
-                        required
-                    >
-                        <option value="PLN" >PLN</option>
-                        <option value="EUR" >EUR</option>
-                        <option value="USD" >USD</option>
-                    </Select>
-                </Label>
-                <Label>
-                    <LabelText>Podaj walutę docelową:</LabelText>
-                    <Select
-                        error={properRating === 1 ? true : false}
                         value={newTargetCurrency}
                         onChange={({ target }) => setNewTargetCurrency(target.value)}
                         required
                     >
-                        <option value="PLN" >PLN</option>
-                        <option value="EUR" >EUR</option>
-                        <option value="USD" >USD</option>
+                        {currencyList.map((currency => (
+                            <option
+                                key={currency}
+                                value={currency}
+                            >
+                                {currency}
+                            </option>
+                        )))}
                     </Select>
                 </Label>
             </Fieldset>

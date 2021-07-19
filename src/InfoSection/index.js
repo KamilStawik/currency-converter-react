@@ -1,4 +1,4 @@
-import Timer from "./Timer";
+import Timer from "../Timer";
 import { Section, List, ListItem, InfoColorSample } from "./styled";
 
 const InfoSection = () => {
@@ -13,10 +13,6 @@ const InfoSection = () => {
                 <ListItem>
                     Pola wymagane są oznaczone kolorem żółtym:
                     <InfoColorSample requiredSample></InfoColorSample>
-                </ListItem>
-                <ListItem>
-                    Pola błędnie wypełnione są oznaczone kolorem czerwonym:
-                    <InfoColorSample errorSample></InfoColorSample>
                 </ListItem>
             </List>
         </Section>
