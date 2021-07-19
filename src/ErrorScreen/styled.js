@@ -14,6 +14,6 @@ export const Section = styled.section`
     }
 `;
 
-export const LoadingText = styled.p`
+export const ErrorText = styled.p`
     padding: 10px;
 `;

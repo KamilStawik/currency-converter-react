@@ -6,7 +6,8 @@ import InfoSection from './InfoSection';
 import Form from './Form';
 import ResultSection from './ResultSection';
 import LoadingScreen from './LoadingScreen';
-import { useCurrencyData } from './useCurrencyData'
+import ErrorScreen from './ErrorScreen';
+import { useCurrencyData } from './useCurrencyData';
 
 const theme = {
   colors: {
@@ -51,7 +52,15 @@ function App() {
         </Container>
       </ThemeProvider>
     )
-
+  else if (currenciesData.status === "error")
+    return (
+      <ThemeProvider theme={theme}>
+        <Header />
+        <Container>
+          <ErrorScreen />
+        </Container>
+      </ThemeProvider>
+    )
   else {
     return (
       <ThemeProvider theme={theme}>

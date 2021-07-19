@@ -25,8 +25,11 @@ export const useCurrencyData = () => {
                     date: (response.date),
                     status: ("succes"),
                 }))
-                .catch(error => console.error("Błąd", error));
-        }, 10000);
+                .catch(error => {
+                    setCurrenciesData({ status: ("error") })
+                    console.log(error)
+                });
+        }, 3000);
     }, []);
 
     return { currenciesData }

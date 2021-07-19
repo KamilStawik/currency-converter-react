@@ -1,17 +1,17 @@
 import Timer from "../Timer";
-import { Section, List, ListItem } from "./styled";
+import { Section, LoadingText } from "./styled";
 
 const LoadingScreen = () => {
 
     return (
         <Section>
             <Timer />
-            <List>
-                <ListItem>
-                    <p>Moja aplikacja przeczesuje dla Ciebie internet w poszukiwaniu najświeższych kursów walut.</p>
-                    <p> Może to potrwać kilka sekund. 😎</p>
-                </ListItem>
-            </List>
+            <LoadingText>
+                Moja aplikacja przeczesuje dla Ciebie internet w poszukiwaniu najświeższych kursów walut.
+            </LoadingText>
+            <LoadingText>
+                Może to potrwać kilka sekund. 😎
+            </LoadingText>
         </Section>
     );
 };
