@@ -8,8 +8,8 @@ const LoadingScreen = () => {
             <Timer />
             <List>
                 <ListItem>
-                    Moja aplikacja przeszukuje dla Ciebie internet w poszukiwaniu najświeższych kursów walut.
-                    Może to potrwać kilka sekund.
+                    <p>Moja aplikacja przeczesuje dla Ciebie internet w poszukiwaniu najświeższych kursów walut.</p>
+                    <p> Może to potrwać kilka sekund. 😎</p>
                 </ListItem>
             </List>
         </Section>
