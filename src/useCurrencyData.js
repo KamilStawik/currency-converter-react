@@ -3,8 +3,6 @@ import { useState, useEffect } from "react";
 export const useCurrencyData = () => {
 
     const initialData = {
-        rates: null,
-        date: null,
         status: "loading",
     };
 

@@ -36,14 +36,20 @@ export const ResultText = styled.span`
     transition: color 0.2s linear;
 
     && {    
-        ${(props) => props.highlighted && css`
+        ${({ highlighted }) => highlighted && css`
             color: hsl(340, 90%, 45%);
         `}
     }
 
     && {    
-        ${(props) => props.highlighted && css`
+        ${({ highlighted }) => highlighted && css`
             color: hsl(340, 90%, 45%);
+        `}
+    }
+
+    && {    
+        ${({ empty }) => empty && css`
+            display: none;
         `}
     }
 `;

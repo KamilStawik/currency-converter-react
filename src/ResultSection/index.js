@@ -18,10 +18,10 @@ const ResultSection = ({ amount, currency, rate, clickCounter }) => {
         <Section>
             <Header>Wynik:</Header>
             <ResultParagraph>
-                <ResultText highlighted={checkValue}>
+                <ResultText highlighted={checkValue} empty={clickCounter === 0 ? true : false}>
                     {`${amount} PLN = `}
                 </ResultText>
-                <ResultText highlighted={checkValue}>
+                <ResultText highlighted={checkValue} empty={clickCounter === 0 ? true : false}>
                     {` ${calculateResult()} ${currency}`}
                 </ResultText>
             </ResultParagraph>
