@@ -21,9 +21,9 @@ export const useCurrencyData = () => {
                 })
                 .then(response => response.json())
                 .then(response => setCurrenciesData({
-                    rates: (response.rates),
-                    date: (response.date),
-                    status: ("succes"),
+                    rates: response.rates,
+                    date: response.date,
+                    status: "succes",
                 }))
                 .catch(error => {
                     setCurrenciesData({ status: ("error") })

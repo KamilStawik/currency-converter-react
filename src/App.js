@@ -15,7 +15,7 @@ function App() {
   const [currency, setCurrency] = useState("EUR");
   const [clickCounter, setClickCounter] = useState(0);
 
-  let rate = currenciesData.status === "succes" ? currenciesData.rates[currency] : 1;
+  let rate = (currenciesData.status === "succes" ? currenciesData.rates[currency] : 1);
 
   const getNewAmountValue = (newAmountValue) => {
     setAmount(newAmountValue);
@@ -52,7 +52,9 @@ function App() {
       <>
         <Header />
         <Container>
-          <InfoSection />
+          <InfoSection
+            currenciesData={currenciesData}
+          />
           <Form
             currenciesData={currenciesData}
             getNewAmountValue={getNewAmountValue}

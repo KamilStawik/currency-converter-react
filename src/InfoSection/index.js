@@ -1,19 +1,23 @@
 import Timer from "../Timer";
-import { Section, List, ListItem, InfoColorSample } from "./styled";
+import { Section, List, ListItem, Date, InfoColorSample } from "./styled";
 
-const InfoSection = () => {
+const InfoSection = ({ currenciesData }) => {
 
     return (
         <Section>
             <Timer />
             <List>
                 <ListItem>
-                    Kalkulator przelicza wartość waluty po kursie średnim z dnia 24.06.2021.
+                    Kursy walut pobierane są z Europejskiego Banku Centralnego.
+                </ListItem>
+                <ListItem>
+                    Aktualne na dzień <Date>{currenciesData.date}.</Date>
                 </ListItem>
                 <ListItem>
                     Pola wymagane są oznaczone kolorem żółtym:
                     <InfoColorSample requiredSample></InfoColorSample>
                 </ListItem>
+
             </List>
         </Section>
     );
