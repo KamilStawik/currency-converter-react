@@ -26,7 +26,7 @@ const ResultSection = ({ amount, currency, rate, clickCounter }) => {
                 </ResultText>
             </ResultParagraph>
         </Section>
-    )
+    );
 };
 
 export default ResultSection;

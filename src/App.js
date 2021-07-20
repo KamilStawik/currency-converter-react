@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Header from './Header';
-import Container from './Container';
+import { Container } from './Container';
 import InfoSection from './InfoSection';
 import Form from './Form';
 import ResultSection from './ResultSection';

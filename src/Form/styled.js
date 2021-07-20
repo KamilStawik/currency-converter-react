@@ -32,9 +32,9 @@ export const Label = styled.label`
     margin: 10px;
 
     @media (max-width: ${({ theme }) => (theme.breakPoints.mobile)}px) {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 `;
 
@@ -47,7 +47,7 @@ export const LabelText = styled.span`
     margin-bottom: 10px;
 
     @media (max-width: ${({ theme }) => (theme.breakPoints.mobile)}px) {
-            max-width: fit-content;
+        max-width: fit-content;
     }
 `;
 
